@@ -16,46 +16,7 @@ if (menuBurger) {
 		menuBody.classList.remove('_active');
 		menuFon.classList.remove('_active');
 	});
-
-
-
-
 }
-/*
-let offset = 0;
-const swiperLine = document.querySelector('.gallery__swiper');
-
-document.querySelector('.gallery__circle--right').addEventListener('click', function() {
-	 offset = offset + 122;
-	 if (offset > 244){
-		  offset = 0;
-	 }
-
-	 swiperLine.style.right = offset + '%';
-})
-
-document.querySelector('.gallery__circle--left').addEventListener('click', function() {
-	 offset = offset - 122;
-	 if (offset < 0){
-		  offset = 244;
-	 }
-
-	 swiperLine.style.right = offset + '%';
-})
-
-if(matchMedia) {
-let screen = window.matchMedia("(max-width:1220px)")
-screen.addEventListener(changes);
-changes(screen);
-
-}
-
-function changes(screen) {
-	 if(screen.matches) {
-		  offset = offset + 104
-	 }
-	 swiperLine.style.right = offset + '%';
-}*/
 
 const blockImages = document.querySelectorAll('.gallery__slider .gallery__slider-line .gallery__grid-conteiner');
 const swiperLine = document.querySelector('.gallery__slider-line');
@@ -73,7 +34,8 @@ function init() {
 window.addEventListener('resize', init);
 init();
 
-document.querySelector('.gallery__circle--right').addEventListener('click', function () {
+document.querySelector('.slider-circle__button--gallery-right').addEventListener('click', function () {
+	// document.querySelector('.slider-circle__button--gallery-right').removeEventListener('click');
 	count++;
 	if (count >= blockImages.length) {
 		count = 0;
@@ -81,7 +43,7 @@ document.querySelector('.gallery__circle--right').addEventListener('click', func
 	rollSlider();
 });
 
-document.querySelector('.gallery__circle--left').addEventListener('click', function () {
+document.querySelector('.slider-circle__button--gallery-left').addEventListener('click', function () {
 	count--;
 	if (count < 0) {
 		count = blockImages.length - 1;

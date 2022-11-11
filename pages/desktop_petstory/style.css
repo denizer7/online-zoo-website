@@ -896,7 +896,7 @@ h6 {
 	bottom: 645px;
 }
 
-.gallery__circle {
+.slider-circle__button {
 	width: 62px;
 	height: 62px;
 	border-radius: 50%;
@@ -904,27 +904,27 @@ h6 {
 	cursor: pointer;
 }
 
-.gallery__circle:active {
+.slider-circle__button:active {
 	background-color: #4B9200;
 }
 
-.gallery__circle--left {
+.slider-circle__button--gallery-left {
 	position: relative;
 	right: 100px;
 }
 
-.gallery__vector--left {
+.slider-vector--left {
 	position: absolute;
 	top: 24px;
 	left: 21px;
 }
 
-.gallery__circle--right {
+.slider-circle__button--gallery-right {
 	position: relative;
 	left: 100px;
 }
 
-.gallery__vector--right {
+.slider-vector--right {
 	position: absolute;
 	top: 24px;
 	left: 21px;
@@ -967,11 +967,11 @@ h6 {
 		bottom: 655px;
 	}
 
-	.gallery__circle--left {
+	.slider-circle__button--left {
 		right: 0;
 	}
 
-	.gallery__circle--right {
+	.slider-circle__button--right {
 		left: 0;
 	}
 
@@ -1129,6 +1129,10 @@ h6 {
 		max-width: 286px;
 	}
 
+	.gallery__images:hover .images__footer {
+		height: 28%;
+	}
+
 	.images__foto {
 		width: 100%;
 		object-fit: cover;
@@ -1206,11 +1210,6 @@ h6 {
 	}
 }
 
-@media (max-width: 360px) {
-	/* .gallery__flowers--right {
-        left: 255px;
-    } */
-}
 
 /*-----Peak-and-feed--------------------------------------------------------------*/
 
@@ -1536,7 +1535,7 @@ h6 {
 .testimonials__items {
 	display: flex;
 	justify-content: space-between;
-	margin: 0 0 21px 0;
+	margin: 0 0 30px 0;
 }
 
 .testimonials__images--min {
@@ -1558,6 +1557,20 @@ h6 {
 	z-index: -1;
 	left: 1127px;
 	top: -40px;
+}
+
+.testimonials__slider-circle {
+	margin: 0 0 25px 0;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.slider-circle__button--testimonials-left {
+	position: relative;
+}
+
+.slider-circle__button--testimonials-right {
+	position: relative;
 }
 
 @media (max-width:1380px) {
@@ -1717,7 +1730,7 @@ h6 {
 .input__email {
 	width: 228px;
 	height: 42px;
-	border-radius: 2px;
+	border-radius: 5px;
 	border: 0.7px solid #F9804B;
 	background-color: #111115;
 	padding: 0 0 0 15px;
