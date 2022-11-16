@@ -31,11 +31,12 @@ function init() {
 	})
 	rollSlider();
 }
-window.addEventListener('resize', init);
+
 init();
 
+
+
 document.querySelector('.slider-circle__button--gallery-right').addEventListener('click', function () {
-	// document.querySelector('.slider-circle__button--gallery-right').removeEventListener('click');
 	count++;
 	if (count >= blockImages.length) {
 		count = 0;

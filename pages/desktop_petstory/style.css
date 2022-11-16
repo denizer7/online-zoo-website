@@ -808,7 +808,7 @@ h6 {
 .gallery__grid-conteiner {
 	display: grid;
 	grid-template: 1fr 1fr / 1fr 1fr 1fr;
-	gap: 80px 30px;
+	gap: 80px 25px;
 	justify-items: center;
 }
 
@@ -1571,6 +1571,56 @@ h6 {
 
 .slider-circle__button--testimonials-right {
 	position: relative;
+}
+
+.testimonials__card {
+	display: block;
+	width: 268px;
+	height: 391px;
+	background-color: #F1F3F2;
+	border-radius: 20px;
+	border: 2px solid #E0D8F0;
+}
+.card {
+}
+.card__header {
+	display: flex;
+	justify-content: space-around;
+	margin: 15px 15px 10px 15px;
+}
+.card__avatar {
+	
+}
+
+.card__image {
+	border-radius: 50%;
+}
+
+.card__description {
+	
+}
+.card__name {
+	font-family: 'Roboto';
+	font-weight: 400;
+	font-size: 1rem;
+	line-height: 120%;
+	color: #000000;
+}
+.card__location {
+	font-family: 'Roboto';
+	font-weight: 300;
+	font-size: 0.9375rem;
+	line-height: 120%;
+	color: #BDBDBD;
+}
+
+.card__footer {
+	color: #767474;
+	margin: 0 15px 0 15px;
+	font-family: 'Roboto';
+	font-weight: 300;
+	font-size: 0.9375rem;
+	line-height: 120%;
 }
 
 @media (max-width:1380px) {
