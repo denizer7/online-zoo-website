@@ -57,4 +57,34 @@ function rollSlider() {
 	swiperLine.style.transform = 'translate(-' + count * width + 'px)';
 }
 
+const btnRight = document.querySelector('.slider-circle__button--testimonials-right');
+const btnLeft = document.querySelector('.slider-circle__button--testimonials-left');
 
+const carousel = document.querySelector('.testimonials__items')
+
+const moveRight = () => {
+	carousel.classList.add('transition-right');
+	btnRight.removeEventListener('click', moveRight);
+	btnLeft.removeEventListener('click', moveLeft);
+}
+
+btnRight.addEventListener('click', moveRight);
+
+carousel.addEventListener('animationend', () => {
+	carousel.classList.remove('transition-right');
+	btnRight.addEventListener('click', moveRight);
+	
+})
+
+const moveLeft = () => {
+	carousel.classList.add('transition-left');
+	btnLeft.removeEventListener('click', moveLeft);
+	btnRight.removeEventListener('click', moveRight);
+}
+
+btnLeft.addEventListener('click', moveLeft);
+
+carousel.addEventListener('animationend', () => {
+	carousel.classList.remove('transition-left');
+	btnLeft.addEventListener('click', moveLeft);
+})
