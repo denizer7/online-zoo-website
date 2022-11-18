@@ -2,7 +2,6 @@ const menuBurger = document.querySelector('.menu-burger__icon');
 const menuBody = document.querySelector('.menu-burger__body');
 const menuFon = document.querySelector('.menu-burger__fon');
 if (menuBurger) {
-
 	menuBurger.addEventListener("click", function (e) {
 		document.body.classList.toggle('_lock');
 		menuFon.classList.toggle('_active');
@@ -34,8 +33,6 @@ function init() {
 
 init();
 
-
-
 document.querySelector('.slider-circle__button--gallery-right').addEventListener('click', function () {
 	count++;
 	if (count >= blockImages.length) {
@@ -52,39 +49,83 @@ document.querySelector('.slider-circle__button--gallery-left').addEventListener(
 	rollSlider();
 });
 
-
 function rollSlider() {
 	swiperLine.style.transform = 'translate(-' + count * width + 'px)';
 }
 
+
+
+// const btnRight = document.querySelector('.slider-circle__button--testimonials-right');
+// const btnLeft = document.querySelector('.slider-circle__button--testimonials-left');
+
+// const carousel = document.querySelector('.testimonials__items')
+
+// const moveRight = () => {
+// 	carousel.classList.add('transition-right');
+// 	carousel.classList.add('right');
+// 	btnRight.removeEventListener('click', moveRight);
+// 	btnLeft.removeEventListener('click', moveLeft);
+// }
+
+// btnRight.addEventListener('click', moveRight);
+
+// carousel.addEventListener('animationend', () => {
+// 	carousel.classList.remove('transition-right');
+// 	btnRight.addEventListener('click', moveRight);
+	
+// })
+
+// const moveLeft = () => {
+// 	carousel.classList.add('transition-left');
+// 	btnLeft.removeEventListener('click', moveLeft);
+// 	btnRight.removeEventListener('click', moveRight);
+// }
+
+// btnLeft.addEventListener('click', moveLeft);
+
+// carousel.addEventListener('animationend', () => {
+// 	carousel.classList.remove('transition-left');
+// 	btnLeft.addEventListener('click', moveLeft);
+// })
+
+let position = 0;
+const slidesToShow = 4;
+const slidesToScroll = 1;
+const container = document.querySelector('.testimonials__items-conteiner');
+const track = document.querySelector('.testimonials__items');
+const items = document.querySelectorAll('.testimonials__card');
 const btnRight = document.querySelector('.slider-circle__button--testimonials-right');
 const btnLeft = document.querySelector('.slider-circle__button--testimonials-left');
+const itemsCount = items.length;
+const itemWidth = container.clientWidth / slidesToShow;
+const movePosition = slidesToScroll * itemWidth;
 
-const carousel = document.querySelector('.testimonials__items')
+// items.forEach((item) => {
+// 	item.style.minWidth = `${itemWidth}px`;
+// });
 
-const moveRight = () => {
-	carousel.classList.add('transition-right');
-	btnRight.removeEventListener('click', moveRight);
-	btnLeft.removeEventListener('click', moveLeft);
-}
+btnRight.addEventListener('click', () => {
+	const itemsLeft = itemsCount - (Math.abs(position) + slidesToShow * itemWidth) / itemWidth;
+	position -= itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
 
-btnRight.addEventListener('click', moveRight);
+	setPosition();
+	// checkBtns();
+});
 
-carousel.addEventListener('animationend', () => {
-	carousel.classList.remove('transition-right');
-	btnRight.addEventListener('click', moveRight);
-	
-})
+btnLeft.addEventListener('click', () => {
+	const itemsLeft = Math.abs(position) / itemWidth;
+	position += itemsLeft >= slidesToScroll ? movePosition : itemsLeft * itemWidth;
 
-const moveLeft = () => {
-	carousel.classList.add('transition-left');
-	btnLeft.removeEventListener('click', moveLeft);
-	btnRight.removeEventListener('click', moveRight);
-}
+	setPosition();
+	// checkBtns();
+});
 
-btnLeft.addEventListener('click', moveLeft);
+const setPosition = () => {
+	track.style.transform = `translateX(${position}px)`;
+};
 
-carousel.addEventListener('animationend', () => {
-	carousel.classList.remove('transition-left');
-	btnLeft.addEventListener('click', moveLeft);
-})
+// const checkBtns = () => 
+
+
+
+
